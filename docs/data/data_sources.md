@@ -8,14 +8,14 @@
 
 | 데이터 | 제공처 | 사용 모듈 | 주요 내용(예상) | 접근 방식 | 라이선스/약관 | 재배포 | 수집일 | 검증 상태 |
 |---|---|---|---|---|---|---|---|---|
-| 검색어 트렌드 | 네이버 DataLab (Open API) | M01, M03 | 키워드 그룹별 기간 검색 비율 (상대값) | API 키 | 네이버 Open API 약관 | 확인 필요 | — | 미검증 |
-| 쇼핑인사이트 | 네이버 DataLab (Open API) | M01, M03 | 쇼핑 분야·키워드 클릭 비율, 성별·연령·기기별 (상대값) | API 키 | 네이버 Open API 약관 | 확인 필요 | — | 미검증 |
-| 키워드 도구 | 네이버 검색광고 API | M03 | 월간 검색수, 경쟁정도, 광고 관련 지표 | 광고주 계정 + API 키 | 검색광고 API 약관 | 확인 필요 | — | 미검증 |
-| 쇼핑 검색 결과(상품수·가격) | 네이버 검색 API(쇼핑) 등 | M03 | 상품 목록·가격·판매처 | API 키 | 약관 확인 필요 | 확인 필요 | — | **미검증 — 제공 지속 여부 가정 금지** |
-| 온라인쇼핑동향 | KOSIS | M01, M03 | 상품군별 온라인 거래액 (월) | OpenAPI / 파일 | 공공누리 등 확인 필요 | 확인 필요 | — | 미검증 |
-| 기상 관측 | 기상청 (공공데이터포털/기상자료개방포털) | M01 | 기온·강수 등 | API / 파일 | 확인 필요 | 확인 필요 | — | 미검증 |
-| 공휴일 | 한국천문연구원 특일정보 (공공데이터포털) | M01 | 공휴일·기념일 | API | 확인 필요 | 확인 필요 | — | 미검증 |
-| 시즌 이벤트 | 팀 정의 (예: 블랙프라이데이, 명절) | M01 | 이벤트 캘린더 | 수작업 | — | 가능 | — | 정의 필요 |
+| 검색어 트렌드 | 네이버 DataLab (Open API) | M01(김한승), M03(김민지) | 키워드 그룹별 기간 검색 비율 (상대값) | API 키 | 네이버 Open API 약관 | 확인 필요 | — | 미검증 |
+| 쇼핑인사이트 | 네이버 DataLab (Open API) | M01(김한승), M03(김민지) | 쇼핑 분야·키워드 클릭 비율, 성별·연령·기기별 (상대값) | API 키 | 네이버 Open API 약관 | 확인 필요 | — | 미검증 |
+| 키워드 도구 | 네이버 검색광고 API | M03(김민지) | 월간 검색수, 경쟁정도, 광고 관련 지표 | 광고주 계정 + API 키 | 검색광고 API 약관 | 확인 필요 | — | 미검증 |
+| 쇼핑 검색 결과(상품수·가격) | 네이버 검색 API(쇼핑) 등 | M03(김민지) | 상품 목록·가격·판매처 | API 키 | 약관 확인 필요 | 확인 필요 | — | **미검증 — 제공 지속 여부 가정 금지** |
+| 온라인쇼핑동향 | KOSIS | M01(김한승), M03(김민지) | 상품군별 온라인 거래액 (월) | OpenAPI / 파일 | 공공누리 등 확인 필요 | 확인 필요 | — | 미검증 |
+| 기상 관측 | 기상청 (공공데이터포털/기상자료개방포털) | M01(김한승) | 기온·강수 등 | API / 파일 | 확인 필요 | 확인 필요 | — | 미검증 |
+| 공휴일 | 한국천문연구원 특일정보 (공공데이터포털) | M01(김한승) | 공휴일·기념일 | API | 확인 필요 | 확인 필요 | — | 미검증 |
+| 시즌 이벤트 | 팀 정의 (예: 블랙프라이데이, 명절) | M01(김한승) | 이벤트 캘린더 | 수작업 | — | 가능 | — | 정의 필요 |
 
 ### 국내 데이터 주의사항
 - DataLab 지표는 **요청 내 최대값 기준 상대 지수**로 알려져 있음 → 요청 간 직접 비교 불가. 기준 키워드를 함께 요청하는 방식 검토. **[검증 필요]**
@@ -26,10 +26,10 @@
 
 | 데이터 | 제공처 | 사용 모듈 | 내용(예상) | 라이선스 | 재배포 | 검증 상태 |
 |---|---|---|---|---|---|---|
-| Criteo Uplift Prediction Dataset | Criteo AI Lab — https://ailab.criteo.com/criteo-uplift-prediction-dataset/ | M02 | 무작위 배정 광고 실험: 익명화 피처, treatment, visit, conversion, exposure | 비상업적 이용 조건으로 알려짐 — **공식 페이지에서 확인** | 원본 재배포 금지 가정 | 미검증 |
-| The Complete Journey | 84.51° / R 패키지 `completejourney` — https://bradleyboehmke.github.io/completejourney/reference/index.html | M04 (주), M02 (보조) | 미국 식료품 소매 가구 패널: 거래, 상품, 프로모션, 캠페인, 쿠폰, 인구통계 | **확인 필요** | 확인 필요 | 미검증 |
+| Criteo Uplift Prediction Dataset | Criteo AI Lab — https://ailab.criteo.com/criteo-uplift-prediction-dataset/ | M02(지혜인) | 무작위 배정 광고 실험: 익명화 피처, treatment, visit, conversion, exposure | 비상업적 이용 조건으로 알려짐 — **공식 페이지에서 확인** | 원본 재배포 금지 가정 | 미검증 |
+| The Complete Journey | 84.51° / R 패키지 `completejourney` — https://bradleyboehmke.github.io/completejourney/reference/index.html | M04(이선진) (주), M02(지혜인) (보조) | 미국 식료품 소매 가구 패널: 거래, 상품, 프로모션, 캠페인, 쿠폰, 인구통계 | **확인 필요** | 확인 필요 | 미검증 |
 
-| Dunnhumby Source Files (대안) | Dunnhumby — https://www.dunnhumby.com/source-files/ | M02·M04 대안 | 소매 거래 데이터셋 (The Complete Journey 원 제공처 계열) | 확인 필요 | 확인 필요 | 미검증 |
+| Dunnhumby Source Files (대안) | Dunnhumby — https://www.dunnhumby.com/source-files/ | M02(지혜인)·M04(이선진) 대안 | 소매 거래 데이터셋 (The Complete Journey 원 제공처 계열) | 확인 필요 | 확인 필요 | 미검증 |
 
 ### 해외 데이터 주의사항
 - **시장·국가 라벨 필수**: Criteo=프랑스 기반 광고 실험(익명), CJ=미국 오프라인 식료품.
@@ -38,7 +38,7 @@
 - CJ 전체 transactions는 패키지 내장 샘플과 별도로 다운로드 함수 필요할 수 있음 — Python 로딩 경로 확인 필요.
 
 ## 3. 사용자 제공 데이터 (선택)
-- M04 이익 시나리오용 원가·마진 입력값 → `assumption` 으로 라벨링, 저장 시 개인정보 없음 확인
+- M04(이선진) 이익 시나리오용 원가·마진 입력값 → `assumption` 으로 라벨링, 저장 시 개인정보 없음 확인
 
 ## 4. 기록 규칙
 수집할 때마다 아래를 이 문서 또는 `growth-lens-data/data/raw/<source>/README` 에 기록:
