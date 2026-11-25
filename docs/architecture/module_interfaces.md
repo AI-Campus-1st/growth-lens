@@ -5,11 +5,13 @@
 
 ## 1. 출력 위치
 ```
-outputs/metrics/<module_id>/<run_id>/
+growth-lens-data/outputs/metrics/<module_id>/<run_id>/
 ├── manifest.json      # 메타데이터 (아래 스키마)
 ├── <result_name>.csv  # 결과 테이블 (Parquet 사용 여부는 W1 결정)
 └── figures/           # (선택) 정적 이미지
 ```
+
+> backend로 전달하는 방식(공유 DB / 결과 파일 / 패키지)은 미정입니다 — [system_architecture.md](system_architecture.md) 참고.
 
 ## 2. manifest.json 스키마 (제안)
 ```json
@@ -84,8 +86,8 @@ long-format 결과 테이블을 쓸 경우의 후보 컬럼입니다. manifest �
 
 ## 4. 모듈 실행 인터페이스 (제안, 구현 전)
 - 각 모듈은 `run(config) -> manifest 경로` 형태의 단일 진입점 제공
-- 입력: `data/processed` + `config/<module>.yaml` (형식 미정)
-- 모듈 간 직접 import 금지 — M04가 M02 결과를 쓸 때도 `outputs/metrics/m02_promotion/` 를 읽음
+- 입력: `growth-lens-data/data/processed` + `growth-lens-data/config/<module>.yaml` (형식 미정)
+- 모듈 간 직접 import 금지 — M04가 M02 결과를 쓸 때도 `growth-lens-data/outputs/metrics/m02_promotion/` 를 읽음
 
 ## 5. 계약 검증
-- `tests/integration/` 에서 manifest 필수 필드, result_type 허용값, 출처·기간 존재 여부 검사 (구현 예정)
+- `growth-lens-data/tests/integration/` 에서 manifest 필수 필드, result_type 허용값, 출처·기간 존재 여부 검사 (구현 예정)

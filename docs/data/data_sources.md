@@ -41,5 +41,5 @@
 - M04 이익 시나리오용 원가·마진 입력값 → `assumption` 으로 라벨링, 저장 시 개인정보 없음 확인
 
 ## 4. 기록 규칙
-수집할 때마다 아래를 이 문서 또는 `data/raw/<source>/README` 에 기록:
+수집할 때마다 아래를 이 문서 또는 `growth-lens-data/data/raw/<source>/README` 에 기록:
 출처 URL · 수집 일시 · 요청 파라미터 · 행 수 · 라이선스 확인 일자 · 담당자

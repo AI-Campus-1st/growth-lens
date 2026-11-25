@@ -2,6 +2,20 @@
 
 > 제안 상태 — 킥오프에서 팀 합의 후 확정합니다. 원격 저장소의 브랜치 보호 설정은 승인 없이 변경하지 않습니다.
 
+## 0. 레포별 작업 위치
+
+| 레포 | 공개 | 주 작업 브랜치 |
+|---|---|---|
+| [growth-lens](https://github.com/AI-Campus-1st/growth-lens) | Public | `docs/*` (기획·주간일지·회의록) |
+| [growth-lens-data](https://github.com/AI-Campus-1st/growth-lens-data) | Private | `feature/m01-*` ~ `feature/m04-*`, `fix/*` |
+| [growth-lens-backend](https://github.com/AI-Campus-1st/growth-lens-backend) | Private | `feature/ai-*`, `feature/platform-*`, `fix/*` |
+| [growth-lens-frontend](https://github.com/AI-Campus-1st/growth-lens-frontend) | Public | `feature/platform-*`, `fix/*` |
+
+- 모든 레포에 `main`(안정)·`develop`(통합) 브랜치를 둡니다.
+- 이 문서가 **전 레포 공통 규칙**입니다. 코드 레포의 README는 이 문서를 링크합니다.
+- 레포를 넘는 변경(예: 표준 출력 스키마 변경 → backend 영향)은 메인 레포 이슈로 먼저 합의합니다.
+- **Public 레포에는 API 키, 데이터, 내부 분석 원본을 절대 올리지 않습니다.**
+
 ## 1. 브랜치 전략
 
 | 브랜치 | 용도 | 병합 대상 |
@@ -53,7 +67,7 @@ feat(m02): T-Learner 업리프트 모델 학습 파이프라인
 feat(m03): Opportunity Score 산식 v0 구현
 feat(m04): 주간 매출 추이 집계 SQL
 feat(ai): 근거 인용 브리핑 프롬프트 초안
-feat(platform): Streamlit 홈 대시보드 골격
+feat(platform): 홈 대시보드 화면 골격
 docs: 데이터 타당성 체크리스트 갱신
 fix: 쇼핑인사이트 날짜 파싱 오류 수정
 test: Opportunity Score 경계값 테스트
