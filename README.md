@@ -469,6 +469,8 @@ Copy-Item .env.example .env
 
 Public 레포(`growth-lens`, `growth-lens-frontend`)에는 데이터, API 키, 내부 분석 결과 원본을 올리지 않습니다.
 
+**클론 직후 각 레포에서 1회:** `git config core.hooksPath .githooks` — 비밀값·대용량 파일 커밋을 차단하는 훅을 켭니다. 상세 규칙과 유출 시 대응은 [CONTRIBUTING.md §5](CONTRIBUTING.md#5-보안--비밀값데이터-유출-방지-필수)을 따릅니다.
+
 ### 데이터 수집 시 기록 사항
 
 - 데이터 출처 및 수집일
