@@ -6,7 +6,7 @@
 - GrowthLens: 네이버 스마트스토어 소규모 판매자용 커머스·마케팅 의사결정 지원 플랫폼 (4인, 5~8주)
 - 모듈: M01 Timing(김한승) · M02 Promotion(지혜인) · M03 Opportunity(김민지) · M04 Revenue(이선진)
 - 공통 AI 계층·플랫폼 통합·PM: 김한승
-- 현재 단계와 결정 상태는 최신 기획안 `PROJECT_PROPOSAL.md`(v1.3)와 `docs/meetings/` 를 우선 확인
+- 현재 단계와 결정 상태는 최신 기획안 `PROJECT_PROPOSAL.md`(v1.3)와 `docs/meetings/`를 우선 확인
 - `docs/planning/project_proposal_v1.2.md` 는 이전 버전(보존용)이며 기준 문서가 아님
 
 ## 1-1. 레포 구성
@@ -17,10 +17,16 @@
 | growth-lens-backend | Private | API, AI 계층(LLM·RAG·평가), 월간 리포트 |
 | growth-lens-frontend | Public | 화면 (프레임워크 미정, Streamlit 미사용) |
 
+- 문서·이슈·PR에서 모듈은 `M01(김한승)`처럼 담당자와 함께 표기합니다. 코드 폴더명에는 사람 이름을 넣지 않습니다.
 - 문서에서 코드 경로는 `growth-lens-data/src/...`처럼 **레포 이름을 앞에 붙여** 표기합니다.
 - 각 코드 레포의 `AGENTS.md`는 이 문서를 기준으로 하는 요약본입니다.
 
-## 2. 문서 참조 매핑
+## 2. 작업 전 확인
+- 담당 범위는 [역할과 책임](docs/planning/roles_and_responsibilities.md), 데이터 착수 근거는 [타당성 체크리스트](docs/data/data_feasibility_checklist.md), 연동 규격은 [모듈 인터페이스](docs/architecture/module_interfaces.md)를 확인합니다.
+- 모듈 배정과 추가 역할 제안을 구분합니다. 회의에서 합의한 담당·기한만 확정으로 기록하고, 충돌이 있으면 관련 문서를 확인해 완료 보고에 남깁니다.
+- 수정할 저장소에서 Git 상태를 확인하고 진행 중인 변경을 보존합니다. 다른 저장소까지 수정해야 할 때는 실제로 필요한 파일만 변경합니다.
+
+## 2-1. 문서 참조 매핑
 사용자 전역 규칙이 참조하는 문서 경로는 이 저장소에서 다음으로 대응됩니다.
 
 | 전역 규칙 경로 | 이 저장소 |

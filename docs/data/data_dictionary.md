@@ -11,7 +11,7 @@
 | collected_at | datetime | 수집 일시 |
 | period_start / period_end | date | 관측 기간 |
 
-## 1. 네이버 DataLab — 검색어 트렌드 (M01, M03) [미검증]
+## 1. 네이버 DataLab — 검색어 트렌드 (M01(김한승), M03(김민지)) [미검증]
 | 컬럼(가공 후) | 타입 | 설명 |
 |---|---|---|
 | keyword_group | str | 요청 시 지정한 키워드 그룹명 |
@@ -21,7 +21,7 @@
 | request_id | str | 같은 정규화 기준을 공유하는 요청 식별자 |
 | device / gender / age | str | 필터 조건 (적용 시) |
 
-## 2. 네이버 DataLab — 쇼핑인사이트 (M01, M03) [미검증]
+## 2. 네이버 DataLab — 쇼핑인사이트 (M01(김한승), M03(김민지)) [미검증]
 | 컬럼 | 타입 | 설명 |
 |---|---|---|
 | category_id | str | 쇼핑 분야 코드 |
@@ -32,7 +32,7 @@
 | group_type / group_value | str | 성별·연령·기기 등 세부 분류 |
 | request_id | str | 정규화 기준 식별자 |
 
-## 3. 네이버 검색광고 키워드 도구 (M03) [미검증]
+## 3. 네이버 검색광고 키워드 도구 (M03(김민지)) [미검증]
 | 컬럼 | 타입 | 설명 |
 |---|---|---|
 | keyword | str | 키워드 |
@@ -40,14 +40,14 @@
 | comp_idx | str | 광고 경쟁 정도 — **광고 경쟁**이며 공급 경쟁 아님 |
 | 기타 | — | 실제 응답 필드 확인 후 추가 |
 
-## 4. 공급 경쟁 지표 (M03) [미검증 — 확보 여부 미정]
+## 4. 공급 경쟁 지표 (M03(김민지)) [미검증 — 확보 여부 미정]
 | 컬럼 | 설명 |
 |---|---|
 | product_count | 검색 결과 상품 수 |
 | seller_count | 판매처 수 |
 | price_p25 / p50 / p75 | 가격 분포 |
 
-## 5. Criteo Uplift (M02) [미검증]
+## 5. Criteo Uplift (M02(지혜인)) [미검증]
 | 컬럼 | 설명 |
 |---|---|
 | f0 ~ f11 | 익명화된 피처 |
@@ -56,7 +56,7 @@
 | visit | 방문 여부 |
 | conversion | 전환 여부 |
 
-## 6. The Complete Journey (M04, M02 보조) [미검증]
+## 6. The Complete Journey (M04(이선진), M02(지혜인) 보조) [미검증]
 | 테이블 | 주요 컬럼(예상) |
 |---|---|
 | transactions | household_id, store_id, basket_id, product_id, quantity, sales_value, retail_disc, coupon_disc, coupon_match_disc, week, transaction_timestamp |
@@ -70,7 +70,7 @@
 
 - 할인 컬럼의 부호(음수 표기 여부)와 순매출 계산식은 로드 후 확인 필요.
 
-## 7. M01 외부 요인 [미검증]
+## 7. M01(김한승) 외부 요인 [미검증]
 | 테이블 | 컬럼 |
 |---|---|
 | weather_daily | date, region, avg_temp, min_temp, max_temp, precipitation |

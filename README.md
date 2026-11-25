@@ -47,6 +47,8 @@ GrowthLens는 소비자 관심도가 상승하면서 경쟁 부담이 상대적�
 
 **공통 AI 계층(LLM·RAG·AI 브리핑·평가), 플랫폼 개발 및 통합, PM: 김한승**
 
+> **모듈 표기 규칙**: 문서·이슈·PR에서 모듈은 담당자와 함께 `M01(김한승)` `M02(지혜인)` `M03(김민지)` `M04(이선진)` 형식으로 적습니다. 코드 폴더명(`m01_timing` 등)은 담당 변경에 대비해 사람 이름 없이 유지합니다.
+
 ---
 
 ## 2. 서비스 구조
@@ -80,7 +82,7 @@ flowchart TD
 
 ## 3. 분석 모듈
 
-### M01. Marketing Timing — 마케팅 적기 분석
+### M01. Marketing Timing (김한승) — 마케팅 적기 분석
 
 **담당: 김한승**
 
@@ -98,7 +100,7 @@ flowchart TD
 
 **검증 방법:** Rolling Backtest, MAE, RMSE, 상승 시점 탐지 성능
 
-### M02. Promotion Intelligence — 마케팅 효과 분석
+### M02. Promotion Intelligence (지혜인) — 마케팅 효과 분석
 
 **담당: 지혜인**
 
@@ -126,7 +128,7 @@ flowchart TD
 
 **검증 방법:** ATE, 신뢰구간, AUUC, Qini Score, Uplift@K, 독립 검증 데이터 평가
 
-### M03. Market Opportunity — 시장 기회 탐지
+### M03. Market Opportunity (김민지) — 시장 기회 탐지
 
 **담당: 김민지**
 
@@ -150,7 +152,7 @@ GrowthLens의 핵심 시장 기회 탐지 모듈입니다.
 
 추천 기준을 충족하지 못하는 경우 상품군을 강제로 추천하지 않습니다.
 
-### M04. Revenue Analysis — 판매 퍼포먼스 분석
+### M04. Revenue Analysis (이선진) — 판매 퍼포먼스 분석
 
 **담당: 이선진**
 
@@ -161,7 +163,7 @@ GrowthLens의 핵심 시장 기회 탐지 모듈입니다.
 - 상품별 판매 수량 및 구매 빈도 분석
 - 할인·쿠폰 금액 및 사용 패턴 분석
 - 프로모션 기간별 판매 성과 비교
-- M02 광고 효과 분석 결과 연계
+- M02(지혜인) 광고 효과 분석 결과 연계
 - 사용자 입력 기반 손익 시뮬레이션
 
 **활용 데이터:** The Complete Journey, M02에서 검증한 Criteo 분석 결과
@@ -251,15 +253,15 @@ GrowthLens는 분석 모델뿐 아니라 AI 기술 및 서비스 자체의 유�
 
 | 데이터 | 활용 모듈 | 출처 |
 |---|---|---|
-| 네이버 쇼핑인사이트 | M01, M03 | [NAVER API HUB](https://api.ncloud-docs.com/docs/naver-api-hub-overview) |
-| 네이버 검색어 트렌드 | M01, M03 | [NAVER API HUB](https://api.ncloud-docs.com/docs/naver-api-hub-overview) |
-| 네이버 검색광고 | M03 | [네이버 검색광고](https://ads.naver.com) |
-| 온라인쇼핑동향 | M01, M03 | [KOSIS](https://kosis.kr) |
-| 기상자료 | M01 | [기상자료개방포털](https://data.kma.go.kr) |
-| 공휴일 데이터 | M01, M03 | [공공데이터포털](https://www.data.go.kr) |
-| Criteo Uplift Dataset | M02 | [Criteo AI Lab](https://ailab.criteo.com/criteo-uplift-prediction-dataset/) |
-| The Complete Journey | M02, M04 | [Complete Journey](https://bradleyboehmke.github.io/completejourney/reference/index.html) |
-| 상품 공급 경쟁 데이터 | M03 | 확보 방법 검토 중 |
+| 네이버 쇼핑인사이트 | M01(김한승), M03(김민지) | [NAVER API HUB](https://api.ncloud-docs.com/docs/naver-api-hub-overview) |
+| 네이버 검색어 트렌드 | M01(김한승), M03(김민지) | [NAVER API HUB](https://api.ncloud-docs.com/docs/naver-api-hub-overview) |
+| 네이버 검색광고 | M03(김민지) | [네이버 검색광고](https://ads.naver.com) |
+| 온라인쇼핑동향 | M01(김한승), M03(김민지) | [KOSIS](https://kosis.kr) |
+| 기상자료 | M01(김한승) | [기상자료개방포털](https://data.kma.go.kr) |
+| 공휴일 데이터 | M01(김한승), M03(김민지) | [공공데이터포털](https://www.data.go.kr) |
+| Criteo Uplift Dataset | M02(지혜인) | [Criteo AI Lab](https://ailab.criteo.com/criteo-uplift-prediction-dataset/) |
+| The Complete Journey | M02(지혜인), M04(이선진) | [Complete Journey](https://bradleyboehmke.github.io/completejourney/reference/index.html) |
+| 상품 공급 경쟁 데이터 | M03(김민지) | 확보 방법 검토 중 |
 
 위 데이터는 활용 후보이며 실제 호출, 다운로드, 이용 조건 및 분석 가능성 검증이 필요합니다.
 
@@ -575,8 +577,8 @@ Claude Code, Codex 등 AI 코딩 도구는 [AGENTS.md](AGENTS.md)(공통)와 [CL
 | 리스크 | 대응 방향 |
 |---|---|
 | 상품 공급 경쟁 데이터 확보 실패 | 대체 데이터 검증 또는 서비스 범위 재설계 |
-| M01과 M03 분석 중복 | 공통 수집 파이프라인 활용 |
-| M02와 M04 분석 중복 | 인과 효과와 실적 분석 구분 |
+| M01과 M03(김민지) 분석 중복 | 공통 수집 파이프라인 활용 |
+| M02와 M04(이선진) 분석 중복 | 인과 효과와 실적 분석 구분 |
 | 국내·해외 데이터 불일치 | 분석 대상 및 적용 범위 분리 |
 | 실제 셀러 고객 데이터 부재 | 전략 검증 및 시뮬레이션으로 제한 |
 | 과도한 개발 범위 | 필수 MVP 우선 개발 |
@@ -613,10 +615,10 @@ Claude Code, Codex 등 AI 코딩 도구는 [AGENTS.md](AGENTS.md)(공통)와 [CL
 
 ### Module Development
 
-- [ ] M01 Marketing Timing
-- [ ] M02 Promotion Intelligence
-- [ ] M03 Market Opportunity
-- [ ] M04 Revenue Analysis
+- [ ] M01 Marketing Timing (김한승)
+- [ ] M02 Promotion Intelligence (지혜인)
+- [ ] M03 Market Opportunity (김민지)
+- [ ] M04 Revenue Analysis (이선진)
 
 ### Platform & AI
 
@@ -640,12 +642,14 @@ Claude Code, Codex 등 AI 코딩 도구는 [AGENTS.md](AGENTS.md)(공통)와 [CL
 
 ## 19. Team
 
-| 이름 | Role |
-|---|---|
-| 김한승 | Project Manager / Marketing Timing / Platform & AI Engineering |
-| 지혜인 | Promotion Intelligence / Causal Inference |
-| 김민지 | Market Opportunity / Market Analysis |
-| 이선진 | Revenue Analysis / Performance Analytics |
+| 이름 | 담당 모듈 | Role | 추가 역할 (제안, 킥오프 확정 전) |
+|---|---|---|---|
+| 김한승 | M01 Marketing Timing | Project Manager / Platform & AI Engineering | 플랫폼 통합, AI 계층, 주간일지 취합, GitHub 관리 |
+| 지혜인 | M02 Promotion Intelligence | Causal Inference | 실험·통계 검증 리뷰, AI 평가셋 검수 |
+| 김민지 | M03 Market Opportunity | Market Analysis | 네이버 공통 수집기·수집 데이터 공유 |
+| 이선진 | M04 Revenue Analysis | Performance Analytics | 공공데이터 수집(KOSIS·기상청·공휴일), DB·SQL 표준 |
+
+상세 배정·백업·PR 리뷰 페어: [역할과 책임 §5](docs/planning/roles_and_responsibilities.md)
 
 ---
 

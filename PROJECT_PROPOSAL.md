@@ -19,20 +19,20 @@
 
 | 담당자 | 모듈 | 책임 |
 |---|---|---|
-| 김한승 | M1 Marketing Timing | 마케팅 적기 분석, 전체 프로젝트 관리(PM), 전체 플랫폼 설계·개발·통합, LLM·RAG 및 AI 평가 |
-| 지혜인 | M2 Promotion Intelligence | 마케팅 효과 분석, 광고 실험 분석, 인과추론·Uplift Modeling |
-| 김민지 | M3 Market Opportunity | 시장 기회 탐지, 수요·경쟁 분석, 기회 점수 |
-| 이선진 | M4 Revenue Analysis | 판매 퍼포먼스, 매출·프로모션 성과 분석 |
+| 김한승 | M01 Marketing Timing | 마케팅 적기 분석, 전체 프로젝트 관리(PM), 전체 플랫폼 설계·개발·통합, LLM·RAG 및 AI 평가 |
+| 지혜인 | M02 Promotion Intelligence | 마케팅 효과 분석, 광고 실험 분석, 인과추론·Uplift Modeling |
+| 김민지 | M03 Market Opportunity | 시장 기회 탐지, 수요·경쟁 분석, 기회 점수 |
+| 이선진 | M04 Revenue Analysis | 판매 퍼포먼스, 매출·프로모션 성과 분석 |
 
-서비스 흐름: M3 WHAT → M1 WHEN → M2 WHO → M4 PERFORMANCE → Monthly Seller Action Report.
+서비스 흐름: M03(김민지) WHAT → M01(김한승) WHEN → M02(지혜인) WHO → M04(이선진) PERFORMANCE → Monthly Seller Action Report.
 
-이는 사용자 의사결정 흐름이며, 국내외 데이터가 동일 셀러의 실제 판매 퍼널을 이룬다는 의미가 아니다. M2·M4 해외 공개 데이터는 별도 분석 사례로 표시한다.
+이는 사용자 의사결정 흐름이며, 국내외 데이터가 동일 셀러의 실제 판매 퍼널을 이룬다는 의미가 아니다. M02(지혜인)·M04(이선진) 해외 공개 데이터는 별도 분석 사례로 표시한다.
 
 모든 담당자는 자신의 데이터 확보·전처리·SQL·EDA·분석·검증·시각화 결과·문서화를 책임진다. 김한승은 전체 플랫폼 통합을 담당하되, 다른 담당자는 통합 가능한 결과와 테스트를 직접 제공한다.
 
 ## 3. 분석 모듈
 
-### M1 — Marketing Timing (김한승)
+### M01 — Marketing Timing (김한승)
 
 **소비자 관심도가 증가한 뒤 마케팅을 시작하는 것은 이미 늦은 것이 아닐까?**
 
@@ -44,7 +44,7 @@
 - 산출물: 상품군별 관심도 추이, 상승 예상 구간 및 불확실성, 준비 일정.
 - 한계: 광고 성과나 매출 개선을 입증하는 기능이 아니다.
 
-### M2 — Promotion Intelligence (지혜인)
+### M02 — Promotion Intelligence (지혜인)
 
 **할인하지 않아도 구매할 고객에게 쿠폰을 지급하고 있는 것은 아닐까?**
 
@@ -66,7 +66,7 @@
 - 산출물: 광고 증분 효과, 타겟팅 정책 비교, 모델 평가 결과, M4에서 재사용 가능한 요약 지표.
 - 한계: 익명 해외 고객 데이터로 국내 고객을 직접 선별하거나 ROAS를 산출하지 않는다.
 
-### M3 — Market Opportunity (김민지)
+### M03 — Market Opportunity (김민지)
 
 **수요 관심도는 상승하지만 경쟁 부담은 상대적으로 낮은 상품군은 무엇인가?**
 
@@ -84,13 +84,13 @@ GrowthLens의 핵심 모듈. 감지 → 진단 → 제안 구조를 유지한다
 - 산출물: 월간 후보 및 기회 점수·근거, 주간 모니터링 결과.
 - 한계: 클릭은 판매량이 아니며 광고 경쟁은 상품 공급 경쟁과 다르다. 상대지수의 요청별 스케일을 확인하고 고객 구성비로 해석하지 않는다. 상품 경쟁 데이터 확보 실패 시 광고 기회 탐색으로 범위를 재합의한다.
 
-### M4 — Revenue Analysis (이선진)
+### M04 — Revenue Analysis (이선진)
 
 **어떤 상품이 매출에 기여하고 있으며, 광고와 할인·쿠폰은 구매에 어떤 영향을 미칠까?**
 
 - 상품별 매출 및 기여도, 주별·월별 판매 추이, 수량·구매 빈도, 할인·쿠폰 금액 및 사용 패턴 분석.
 - 프로모션 기간별 관측 판매 성과 비교; 적절한 비교군이 있을 때 효과 추정 검토.
-- 데이터: The Complete Journey `transactions`, `products`, 필요시 `promotions`, `campaigns`, `coupons`, `coupon_redemptions`. Criteo 광고 효과는 M2 결과 재사용.
+- 데이터: The Complete Journey `transactions`, `products`, 필요시 `promotions`, `campaigns`, `coupons`, `coupon_redemptions`. Criteo 광고 효과는 M02(지혜인) 결과 재사용.
 - 방법: SQL 집계, 시계열·ABC 분석, 구매 빈도, 프로모션 비교 및 민감도 분석.
 - 검증: 조인 카디널리티, 중복, 매출·할인 정의, 집계 대사, 비교군 타당성.
 - 산출물: 상품별 판매 퍼포먼스, 매출 기여도, 할인·쿠폰 성과, 선택적 사용자 입력 기반 손익 시뮬레이션.
@@ -100,7 +100,7 @@ M2는 인과효과 및 고객 정책, M4는 관측 실적 및 상품 성과를 �
 
 ## 4. 전체 플랫폼 및 AI (김한승)
 
-- 화면: Home, M3, M1, M2, M4, AI Assistant, 월간 리포트(잠정).
+- 화면: Home, M03(김민지), M01(김한승), M02(지혜인), M04(이선진), AI Assistant, 월간 리포트(잠정).
 - SQL/Python: 수치·KPI·통계 및 모델 출력의 기준 원천.
 - RAG: 승인된 분석 보고서, 지표 정의, 데이터 명세, 근거 문서 검색.
 - LLM: 검증된 수치 및 검색 근거의 해석·요약·질의응답. 근거 부족 시 답변 보류, 출처 표시.
@@ -113,11 +113,11 @@ M2는 인과효과 및 고객 정책, M4는 관측 실적 및 상품 성과를 �
 
 | 영역 | 검증 | 구분 |
 |---|---|---|
-| M1 | 시간순 예측 백테스트 | 오프라인 |
-| M2 | Criteo 처치군·대조군 전환율 및 ATE, 신뢰구간 | 기존 무작위 실험 재분석 |
-| M2 | 일반 예측·무작위 정책·Uplift 비교 | 오프라인 정책 평가 |
-| M3 | 미래 관심도 검증, 순위 민감도 | 오프라인 |
-| M4 | 집계 대사, 비교군·통계 검정 | 관측 분석, 실험 구조 확인 시만 인과추정 |
+| M01(김한승) | 시간순 예측 백테스트 | 오프라인 |
+| M02(지혜인) | Criteo 처치군·대조군 전환율 및 ATE, 신뢰구간 | 기존 무작위 실험 재분석 |
+| M02(지혜인) | 일반 예측·무작위 정책·Uplift 비교 | 오프라인 정책 평가 |
+| M03(김민지) | 미래 관심도 검증, 순위 민감도 | 오프라인 |
+| M04(이선진) | 집계 대사, 비교군·통계 검정 | 관측 분석, 실험 구조 확인 시만 인과추정 |
 | AI | 동일 질문에서 정형 결과+LLM vs 정형 결과+LLM+RAG | 대응표본 오프라인 비교 |
 | 플랫폼 | 기존 탐색 방식 vs GrowthLens, 무작위 참가자 배정 | 참가자 확보 시 신규 A/B 테스트 |
 
@@ -127,13 +127,13 @@ M2는 인과효과 및 고객 정책, M4는 관측 실적 및 상품 성과를 �
 
 | 출처 | 담당 모듈 | 링크 |
 |---|---|---|
-| NAVER API HUB | M1/M3 | https://api.ncloud-docs.com/docs/naver-api-hub-overview |
-| 네이버 검색광고 | M3 (M1 공용 가능) | https://ads.naver.com |
-| KOSIS | M1/M3 | https://kosis.kr |
-| 기상자료개방포털 | M1 | https://data.kma.go.kr |
-| Criteo Uplift | M2 | https://ailab.criteo.com/criteo-uplift-prediction-dataset/ |
-| The Complete Journey | M2/M4 | https://bradleyboehmke.github.io/completejourney/reference/index.html |
-| Dunnhumby | M2/M4 대안 | https://www.dunnhumby.com/source-files/ |
+| NAVER API HUB | M01(김한승)/M03(김민지) | https://api.ncloud-docs.com/docs/naver-api-hub-overview |
+| 네이버 검색광고 | M03(김민지) (M01(김한승) 공용 가능) | https://ads.naver.com |
+| KOSIS | M01(김한승)/M03(김민지) | https://kosis.kr |
+| 기상자료개방포털 | M01(김한승) | https://data.kma.go.kr |
+| Criteo Uplift | M02(지혜인) | https://ailab.criteo.com/criteo-uplift-prediction-dataset/ |
+| The Complete Journey | M02(지혜인)/M04(이선진) | https://bradleyboehmke.github.io/completejourney/reference/index.html |
+| Dunnhumby | M02(지혜인)/M04(이선진) 대안 | https://www.dunnhumby.com/source-files/ |
 
 공휴일 및 상품 경쟁 데이터의 구체적인 제공처는 PoC에서 확정한다. API 제공 여부, 키 발급, 이용약관, 호출 한도, 다운로드·적재, 기간 및 스키마, 재배포 허용 범위를 직접 확인한다. 기존 쇼핑 검색 API를 이용할 수 있다고 가정하지 않는다. 국내외 데이터셋은 개별 고객이나 상품 수준에서 직접 조인하지 않는다.
 
@@ -152,10 +152,10 @@ P0: 네 모듈 핵심 분석 및 기본 검증, 통합 플랫폼, 근거 기반 
 
 ## 8. 착수 승인 기준 및 리스크
 
-- M3 경쟁 데이터 미확보: 기존 시장 기회 주장을 유지하지 않고 범위를 재합의한다.
-- M1 예측이 단순 기준선을 이기지 못함: 예측 추천 대신 계절 패턴 및 준비 일정 참고 정보 제공.
-- M2 실험 구조·모델 검증 실패: 검증된 평균 효과 분석까지만 제공.
-- M4 관측 거래 분석: 인과·이익 주장 금지, 산식과 집계 대사 필수.
+- M03(김민지) 경쟁 데이터 미확보: 기존 시장 기회 주장을 유지하지 않고 범위를 재합의한다.
+- M01(김한승) 예측이 단순 기준선을 이기지 못함: 예측 추천 대신 계절 패턴 및 준비 일정 참고 정보 제공.
+- M02(지혜인) 실험 구조·모델 검증 실패: 검증된 평균 효과 분석까지만 제공.
+- M04(이선진) 관측 거래 분석: 인과·이익 주장 금지, 산식과 집계 대사 필수.
 - PM 업무 과부하: 모듈 담당자의 독립 산출물·테스트 책임 유지, 고급 AI 기능 축소.
 - 서비스 적합성 및 차별성: 셀러 인터뷰·경쟁 서비스 비교 전 확정 주장 금지.
 
