@@ -6,9 +6,9 @@
 
 | 계층 | 담당 | 하는 일 | 하지 않는 일 |
 |---|---|---|---|
-| Structured Analytics | SQL / Python (`src/modules`, `sql/`) | KPI, 통계, 모델 예측, 수치 분석, 검증된 결과 | 자연어 해석 |
-| Retrieval | RAG (`src/ai/rag`, `src/ai/retrieval`) | 승인 보고서, 데이터 사전, 지표 정의, 방법론, 검증된 시장 자료 검색 | **정확한 수치 질의 대체 금지** |
-| LLM | `src/ai/llm`, `src/ai/prompts` | 해석, 요약, 리포트 서술, 근거 기반 권고, Q&A | **계산 금지**, 근거 없는 권고 금지 |
+| Structured Analytics | SQL / Python (`growth-lens-data/src/modules`, `growth-lens-data/sql/`) | KPI, 통계, 모델 예측, 수치 분석, 검증된 결과 | 자연어 해석 |
+| Retrieval | RAG (`growth-lens-backend/src/ai/rag`, `growth-lens-backend/src/ai/retrieval`) | 승인 보고서, 데이터 사전, 지표 정의, 방법론, 검증된 시장 자료 검색 | **정확한 수치 질의 대체 금지** |
+| LLM | `growth-lens-backend/src/ai/llm`, `growth-lens-backend/src/ai/prompts` | 해석, 요약, 리포트 서술, 근거 기반 권고, Q&A | **계산 금지**, 근거 없는 권고 금지 |
 
 ## 2. 요청 처리 흐름 (개념)
 
