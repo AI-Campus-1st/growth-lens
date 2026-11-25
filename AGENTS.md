@@ -9,6 +9,17 @@
 - 현재 단계와 결정 상태는 최신 기획안 `PROJECT_PROPOSAL.md`(v1.3)와 `docs/meetings/` 를 우선 확인
 - `docs/planning/project_proposal_v1.2.md` 는 이전 버전(보존용)이며 기준 문서가 아님
 
+## 1-1. 레포 구성
+| 레포 | 공개 | 내용 |
+|---|---|---|
+| growth-lens (메인) | Public | 문서·주간일지만, 코드 없음 |
+| growth-lens-data | Private | 수집·전처리·SQL·M01~M04 분석·표준 출력 |
+| growth-lens-backend | Private | API, AI 계층(LLM·RAG·평가), 월간 리포트 |
+| growth-lens-frontend | Public | 화면 (프레임워크 미정, Streamlit 미사용) |
+
+- 문서에서 코드 경로는 `growth-lens-data/src/...`처럼 **레포 이름을 앞에 붙여** 표기합니다.
+- 각 코드 레포의 `AGENTS.md`는 이 문서를 기준으로 하는 요약본입니다.
+
 ## 2. 문서 참조 매핑
 사용자 전역 규칙이 참조하는 문서 경로는 이 저장소에서 다음으로 대응됩니다.
 
@@ -43,7 +54,7 @@
 - 모듈 간 직접 import 금지 — 표준 출력 계약(module_interfaces.md)을 통해서만 연동.
 - 핵심 비즈니스 로직은 TDD 우선(테스트 작성 → 실패 확인 → 구현 → 통과 → 리팩터링).
 - 테스트하지 않은 기능을 "검증됨"으로 보고하지 않음.
-- 노트북(`notebooks/`)은 탐색용, 재사용 로직은 `src/` 로 이동.
+- 노트북(`growth-lens-data/notebooks/`)은 탐색용, 재사용 로직은 `growth-lens-data/src/` 로 이동.
 
 ## 6. 브랜치·커밋
 `CONTRIBUTING.md` 참고.

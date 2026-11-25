@@ -105,7 +105,8 @@ M2는 인과효과 및 고객 정책, M4는 관측 실적 및 상품 성과를 �
 - RAG: 승인된 분석 보고서, 지표 정의, 데이터 명세, 근거 문서 검색.
 - LLM: 검증된 수치 및 검색 근거의 해석·요약·질의응답. 근거 부족 시 답변 보류, 출처 표시.
 - 모든 결과에 출처, 시장·기간, 관측/추정/가정/시뮬레이션 구분 및 한계 표시.
-- 기술 후보: Python, SQL, PostgreSQL, Pandas, Statsmodels, Scikit-learn, Plotly, Streamlit. LLM 공급자·임베딩·벡터 DB는 미확정.
+- 기술 후보: Python, SQL, PostgreSQL, Pandas, Statsmodels, Scikit-learn, Plotly. LLM 공급자·임베딩·벡터 DB는 미확정.
+- 2026-11-25 결정: Streamlit 미사용, FE/BE 분리. 레포는 메인(문서)·data·backend·frontend 4개로 운영하며 FE/BE 프레임워크는 미정.
 - MVP에서는 근거 기반 리포트 우선. RAG는 문서 검색 가치를 입증할 수 있는 최소 범위로 시작한다.
 
 ## 5. 실험 및 검증 체계

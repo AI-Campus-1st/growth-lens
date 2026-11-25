@@ -6,6 +6,19 @@
 
 분석 모델, 플랫폼, LLM·RAG 기능은 **아직 구현되지 않았습니다.**
 
+## 레포지토리 구성
+
+GrowthLens는 4개 레포로 운영합니다. 이 레포는 **문서·주간일지 관리용 메인 레포**이며 코드는 포함하지 않습니다.
+
+| 레포 | 공개 | 용도 | 주 사용자 |
+|---|---|---|---|
+| [growth-lens](https://github.com/AI-Campus-1st/growth-lens) (이 레포) | Public | 메인: 기획·설계 문서, 주간일지, 회의록, 협업 규칙 | 전원 |
+| [growth-lens-data](https://github.com/AI-Campus-1st/growth-lens-data) | Private | 데이터 파이프라인: 수집·전처리·SQL·M01~M04 분석·표준 출력 | 모듈 담당 4인 |
+| [growth-lens-backend](https://github.com/AI-Campus-1st/growth-lens-backend) | Private | 백엔드: API, 공통 AI 계층(LLM·RAG·평가), 월간 리포트 | 김한승 |
+| [growth-lens-frontend](https://github.com/AI-Campus-1st/growth-lens-frontend) | Public | 프론트엔드: 홈·모듈 화면·AI Assistant·리포트 화면 | 김한승 (+모듈 담당 협업) |
+
+> Private 레포는 팀원만 열람할 수 있습니다(외부에는 404로 보임). 레포 이름·공개 범위는 2026-11-25 팀 결정, 원격 생성 여부는 각 링크로 확인하세요.
+
 ---
 
 ## 1. 프로젝트 개요
@@ -273,7 +286,8 @@ GrowthLens는 분석 모델뿐 아니라 AI 기술 및 서비스 자체의 유�
 | Machine Learning | Scikit-learn, LightGBM |
 | Causal Inference | EconML, CausalML |
 | Visualization | Plotly |
-| Platform | Streamlit(MVP 후보) 또는 별도 웹 프레임워크 — 미확정 |
+| Frontend | 웹 프레임워크 미정 — **Streamlit 미사용**(2026-11-25 결정), 로컬 구현 |
+| Backend | API 프레임워크 미정 |
 | LLM | LLM API — 제공사 미정 |
 | RAG | Embedding, Vector Search, Retrieval Framework — 모델·DB·프레임워크 미정 |
 | Testing | Pytest, 데이터 품질 검증 도구 |
@@ -286,64 +300,37 @@ Python 버전, 의존성 관리 방식, LLM 모델, 임베딩 모델 및 벡터 
 
 ## 9. 프로젝트 디렉터리 구조
 
-아래는 **현재 저장소에 실제로 존재하는** 구조입니다(2026-11-25 기준). `(미생성)` 표시는 기획상 예정이지만 아직 만들지 않은 경로입니다. 상세 설명과 소유권은 [디렉터리 구조 문서](docs/architecture/directory_structure.md)를 기준으로 합니다.
+### 로컬 작업공간 (권장)
 
 ```text
-growthlens/
-├── README.md
-├── PROJECT_PROPOSAL.md        # 최신 통합 기획안 (v1.3)
-├── CONTRIBUTING.md
-├── AGENTS.md
-├── CLAUDE.md
-├── .gitignore
-├── .env.example
-├── pyproject.toml             # 메타데이터만, 의존성 미정
-│
-├── docs/
-│   ├── planning/              # 범위, 역할, 로드맵, 리스크, 백로그, 기획안 v1.2(보존)
-│   ├── data/
-│   ├── architecture/
-│   ├── ai/
-│   ├── meetings/
-│   ├── reports/
-│   └── experiments/           # (미생성)
-│
-├── config/
-├── data/{raw, interim, processed, sample, knowledge}/
-├── notebooks/{m01_timing, m02_promotion, m03_opportunity, m04_revenue}/
-│
-├── src/
-│   ├── common/
-│   ├── ingestion/
-│   ├── preprocessing/
-│   ├── database/
-│   ├── modules/{m01_timing, m02_promotion, m03_opportunity, m04_revenue}/
-│   ├── ai/{llm, rag, prompts, retrieval, evaluation, guardrails}/
-│   └── reporting/
-│
-├── sql/{schema, views, analysis}/
-├── models/
-├── app/{pages, components, assets}/
-├── tests/{unit, integration, data_quality, ai}/
-├── outputs/{figures, metrics, reports}/
-└── experiments/               # (미생성 — 위치 미정, 아래 참고)
+growthlens/                      # 작업공간 폴더 (git 아님)
+├── growth-lens/                 # 메인 레포 (Public) — 문서
+├── growth-lens-data/            # 데이터 파이프라인 (Private)
+├── growth-lens-backend/         # 백엔드·AI (Private)
+└── growth-lens-frontend/        # 프론트엔드 (Public)
 ```
 
-| 디렉터리 | 용도 |
-|---|---|
-| `docs/` | 기획, 데이터 명세, 분석 보고서, 회의록 |
-| `config/` | 공통 환경 및 분석 설정 |
-| `data/` | 원본, 중간 처리 및 분석용 데이터 |
-| `notebooks/` | EDA 및 분석 실험 |
-| `src/` | 재현 가능한 정식 분석 및 서비스 코드 |
-| `sql/` | DB 스키마, View, 분석 쿼리 |
-| `models/` | 학습 모델 및 메타데이터 |
-| `app/` | 통합 서비스 |
-| `experiments/` | 실험 및 평가 코드 — **미생성, 위치 미정**. 현재 AI 평가 코드는 `src/ai/evaluation/`, 평가셋은 `tests/ai/`로 계획됨 |
-| `tests/` | 코드 및 데이터 품질 검증 |
-| `outputs/` | 분석 결과, 시각화 및 리포트 |
+### 메인 레포 (이 레포)
 
-실제 필요에 따라 하위 디렉터리를 생성하며, 불필요한 중복 프로젝트나 빈 폴더를 생성하지 않습니다.
+```text
+growth-lens/
+├── README.md
+├── PROJECT_PROPOSAL.md          # 최신 통합 기획안 (v1.3)
+├── CONTRIBUTING.md              # 전 레포 공통 Git 협업 규칙
+├── AGENTS.md / CLAUDE.md        # AI 코딩 도구 공통 지침
+├── .gitignore
+└── docs/
+    ├── planning/                # 범위, 역할, 로드맵, 리스크, 백로그, 기획안 v1.2(보존)
+    ├── data/                    # 데이터 출처·사전·타당성 체크리스트
+    ├── architecture/            # 시스템·레포 구조·모듈 인터페이스
+    ├── ai/                      # AI 아키텍처, LLM·RAG 전략, 평가 계획
+    ├── meetings/                # 회의록
+    ├── weekly/                  # 주간일지
+    ├── reports/                 # 모듈별 방법론·결과 보고서
+    └── experiments/             # (미생성) 실험 설계 문서
+```
+
+각 코드 레포의 상세 구조와 경로 소유권은 [레포·디렉터리 구조 문서](docs/architecture/directory_structure.md)를 기준으로 합니다.
 
 ---
 
@@ -359,7 +346,7 @@ growthlens/
 | 아키텍처 | [시스템](docs/architecture/system_architecture.md) · [디렉터리](docs/architecture/directory_structure.md) · [모듈 인터페이스](docs/architecture/module_interfaces.md) |
 | AI | [AI 아키텍처](docs/ai/ai_architecture.md) · [LLM·RAG 전략](docs/ai/llm_rag_strategy.md) · [AI 평가 계획](docs/ai/ai_evaluation_plan.md) |
 | 실험·평가 | [AI 평가 계획](docs/ai/ai_evaluation_plan.md) · 기획안 [5. 실험 및 검증 체계](PROJECT_PROPOSAL.md#5-실험-및-검증-체계) · `docs/experiments/`(미생성 — 첫 실험 설계 문서 작성 시 생성) |
-| 회의 | [킥오프](docs/meetings/2026-11-25_kickoff.md) |
+| 회의·주간일지 | [킥오프](docs/meetings/2026-11-25_kickoff.md) · [주간일지 안내](docs/weekly/README.md) |
 | 협업 | [CONTRIBUTING.md](CONTRIBUTING.md) · [AGENTS.md](AGENTS.md) · [CLAUDE.md](CLAUDE.md) |
 
 ### 문서 관리 원칙
@@ -379,12 +366,14 @@ growthlens/
 
 ### Step 1. 저장소 복제
 
-팀에서 공유한 실제 GitHub 저장소 주소를 사용합니다. **현재 원격 저장소는 아직 생성되지 않았습니다**(로컬 `git init`만 완료, 커밋 없음).
+Private 레포는 Organization 권한이 있어야 clone할 수 있습니다. 본인 담당에 필요한 레포만 받아도 됩니다.
 
 ```bash
-git clone <repository-url>
-cd growthlens
-git status
+mkdir growthlens && cd growthlens
+git clone https://github.com/AI-Campus-1st/growth-lens.git
+git clone https://github.com/AI-Campus-1st/growth-lens-data.git       # 모듈 담당 전원
+git clone https://github.com/AI-Campus-1st/growth-lens-backend.git    # 백엔드·AI
+git clone https://github.com/AI-Campus-1st/growth-lens-frontend.git   # 프론트엔드
 ```
 
 ### Step 2. 공통 문서 확인
@@ -424,6 +413,8 @@ Windows PowerShell:
 개별 팀원이 독립적으로 Python 및 주요 패키지 버전을 확정하지 않습니다.
 
 ### Step 4. 환경 변수 설정
+
+`.env.example`은 코드 레포(`growth-lens-data`, `growth-lens-backend`, `growth-lens-frontend`)에 있습니다. 메인 레포에는 없습니다.
 
 macOS / Linux:
 
@@ -469,12 +460,14 @@ Copy-Item .env.example .env
 
 | 경로 | 관리 원칙 |
 |---|---|
-| `data/raw/` | 원본 보존 및 직접 수정 금지 |
-| `data/interim/` | 중간 정제 및 변환 데이터 |
-| `data/processed/` | 최종 분석용 데이터 |
-| `data/sample/` | 재배포 가능한 최소 샘플 |
-| `data/knowledge/` | RAG용 검증된 지식 자료 |
-| `outputs/` | 검증된 분석 결과 및 리포트 |
+| `growth-lens-data/data/raw/` | 원본 보존 및 직접 수정 금지 |
+| `growth-lens-data/data/interim/` | 중간 정제 및 변환 데이터 |
+| `growth-lens-data/data/processed/` | 최종 분석용 데이터 |
+| `growth-lens-data/data/sample/` | 재배포 가능한 최소 샘플 |
+| `growth-lens-data/outputs/` | 검증된 분석 결과(표준 출력) |
+| `growth-lens-backend/data/knowledge/` | RAG용 검증된 지식 자료 |
+
+Public 레포(`growth-lens`, `growth-lens-frontend`)에는 데이터, API 키, 내부 분석 결과 원본을 올리지 않습니다.
 
 ### 데이터 수집 시 기록 사항
 
@@ -604,6 +597,7 @@ Claude Code, Codex 등 AI 코딩 도구는 [AGENTS.md](AGENTS.md)(공통)와 [CL
 - [ ] 통합 기획안 및 README 동기화
 - [ ] 팀 공통 개발 환경 설정
 - [ ] Git 협업 규칙 확정
+- [ ] 레포 4개 분리 및 원격 생성
 
 ### Data Feasibility
 
