@@ -1,16 +1,51 @@
-# 메인 레포는 문서 전용 — 코드·데이터·비밀값을 올리지 않습니다.
+# growth-lens (메인, Public) — 문서 전용. 코드·데이터·비밀값을 올리지 않습니다.
+# ============================================================
+# [공통] 비밀값·자격증명 — 4개 레포 동일 블록 (수정 시 전 레포 함께 변경)
+# ============================================================
 .env
 .env.*
+*.env
+!.env.example
+.envrc
+secrets/
 *.pem
 *.key
-data/
-*.csv
-*.parquet
-*.zip
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+credentials*.json
+*service-account*.json
+*service_account*.json
+client_secret*.json
+token.json
+.netrc
+.streamlit/secrets.toml
 
-# OS / IDE
+# [공통] 로그·캐시·가상환경·OS
+*.log
+logs/
+.cache/
+.venv/
+venv/
+__pycache__/
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# ============================================================
+# [메인] 데이터·대용량 파일 차단
+# ============================================================
+data/
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.zip
+*.gz
+*.pkl
